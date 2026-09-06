@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Lachflash 😂 | Witze & Spaß</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #0f0f14;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Hintergrund */
+        .background {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background:
+                radial-gradient(circle at 20% 20%, #ffcc00 0%, transparent 25%),
+                radial-gradient(circle at 80% 30%, #ff4d6d 0%, transparent 25%),
+                radial-gradient(circle at 50% 90%, #7c4dff 0%, transparent 30%),
+                #0f0f14;
+            opacity: 0.18;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(15, 15, 20, 0.8);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 900;
+        }
+
+        .logo span {
+            color: #ffcc00;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        nav a:hover {
+            color: #ffcc00;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 20px 60px;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .emoji {
+            font-size: 75px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        h1 {
+            font-size: clamp(55px, 10vw, 110px);
+            font-weight: 1000;
+            line-height: 0.95;
+            margin: 20px 0;
+        }
+
+        .yellow {
+            color: #ffcc00;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #d0d0d0;
+            margin-bottom: 35px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 16px 28px;
+            border-radius: 50px;
+            background: #ffcc00;
+            color: #111;
+            text-decoration: none;
+            font-weight: 900;
+            font-size: 17px;
+            transition: 0.25s;
+            box-shadow: 0 10px 30px rgba(255,204,0,0.2);
+        }
+
+        .button:hover {
+            transform: scale(1.06);
+            box-shadow: 0 15px 40px rgba(255,204,0,0.35);
+        }
+
+        .button.secondary {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            margin-left: 10px;
+            box-shadow: none;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 45px;
+            margin-bottom: 50px;
+        }
+
+        /* Witz */
+        .joke-card {
+            max-width: 750px;
+            margin: auto;
+            padding: 45px;
+            border-radius: 30px;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.1);
+            backdrop-filter: blur(15px);
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+        }
+
+        .joke-card .big {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        #joke {
+            font-size: 23px;
+            line-height: 1.5;
+            margin-bottom: 30px;
+        }
+
+        /* Vorteile */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .card {
+            padding: 35px 25px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 25px;
+            text-align: center;
+            transition: 0.25s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            background: rgba(255,255,255,0.1);
+        }
+
+        .card-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #bbb;
+            line-height: 1.5;
+        }
+
+        /* Über Lachflash */
+        .about {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .about p {
+            color: #ccc;
+            font-size: 19px;
+            line-height: 1.8;
+        }
+
+        /* CTA */
+        .cta {
+            text-align: center;
+            max-width: 900px;
+            margin: auto;
+            padding: 70px 30px;
+            border-radius: 35px;
+            background: linear-gradient(
+                135deg,
+                rgba(255,204,0,0.15),
+                rgba(255,77,109,0.12)
+            );
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .cta h2 {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .cta p {
+            color: #ccc;
+            margin-bottom: 30px;
+            font-size: 18px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 35px 20px;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            color: #888;
+        }
+
+        footer strong {
+            color: #ffcc00;
+        }
+
+        /* Mobile */
+        @media (max-width: 700px) {
+
+            nav {
+                padding: 15px 5%;
+            }
+
+            nav .links {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 100px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            .button {
+                display: block;
+                margin: 10px auto !important;
+                max-width: 280px;
+            }
+
+            section {
+                padding: 75px 5%;
+            }
+
+            .section-title {
+                font-size: 35px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .joke-card {
+                padding: 30px 20px;
+            }
+
+            #joke {
+                font-size: 19px;
+            }
+
+            .cta h2 {
+                font-size: 35px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<!-- Navigation -->
+<nav>
+    <div class="logo">😂 <span>Lachflash</span></div>
+
+    <div class="links">
+        <a href="#start">Start</a>
+        <a href="#witz">Witz des Tages</a>
+        <a href="#ueber">Über uns</a>
+    </div>
+</nav>
+
+
+<!-- Start -->
+<section class="hero" id="start">
+    <div class="hero-content">
+
+        <div class="emoji">😂</div>
+
+        <h1>
+            LACH<span class="yellow">FLASH</span>
+        </h1>
+
+        <p>
+            Dein eigener WhatsApp-Kanal für Witze,
+            Spaß und jede Menge Lachanfälle! 🤣🔥
+        </p>
+
+        <!-- HIER SPÄTER DEINEN WHATSAPP-LINK EINTRAGEN -->
+        <a class="button"
+           href="DEIN-WHATSAPP-KANAL-LINK"
+           target="_blank">
+            📱 WhatsApp-Kanal abonnieren
+        </a>
+
+        <a class="button secondary" href="#witz">
+            🤣 Witz ansehen
+        </a>
+
+    </div>
+</section>
+
+
+<!-- Witz des Tages -->
+<section id="witz">
+
+    <h2 class="section-title">
+        🤣 Witz des Tages
+    </h2>
+
+    <div class="joke-card">
+
+        <div class="big">😂</div>
+
+        <p id="joke">
+            Warum können Geister so schlecht lügen?
+            <br><br>
+            Weil man durch sie hindurchsieht! 👻😂
+        </p>
+
+        <button class="button" onclick="newJoke()">
+            🔄 Neuer Witz
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- Was dich erwartet -->
+<section>
+
+    <h2 class="section-title">
+        🔥 Was dich erwartet
+    </h2>
+
+    <div class="cards">
+
+        <div class="card">
+            <div class="card-icon">😂</div>
+            <h3>Lustige Witze</h3>
+            <p>
+                Jede Menge Witze zum Lachen,
+                Weitererzählen und Teilen.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">🔥</div>
+            <h3>Neue Inhalte</h3>
+            <p>
+                Regelmäßig neue lustige Beiträge
+                für deinen täglichen Lachflash.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">📱</div>
+            <h3>Auf WhatsApp</h3>
+            <p>
+                Alles bequem auf deinem Handy
+                über deinen WhatsApp-Kanal.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- Über -->
+<section id="ueber">
+
+    <div class="about">
+
+        <h2 class="section-title">
+            😂 Über Lachflash
+        </h2>
+
+        <p>
+            Willkommen auf der Webseite von meinem
+            WhatsApp-Kanal <strong>Lachflash</strong>! 🎉
+            <br><br>
+
+            Hier dreht sich alles um Witze, Spaß und
+            Unterhaltung. Mein Ziel ist ganz einfach:
+            Dir jeden Tag einen Grund zum Lachen zu geben. 🤣
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- WhatsApp CTA -->
+<section>
+
+    <div class="cta">
+
+        <h2>Bereit für deinen Lachflash? 😂</h2>
+
+        <p>
+            Dann schau auf meinem WhatsApp-Kanal vorbei!
+        </p>
+
+        <!-- HIER AUCH DEINEN WHATSAPP-LINK EINTRAGEN -->
+        <a class="button"
+           href="DEIN-WHATSAPP-KANAL-LINK"
+           target="_blank">
+            🚀 Zum WhatsApp-Kanal
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- Footer -->
+<footer>
+    © 2026 <strong>Lachflash</strong> · Meine eigene Webseite 😂
+</footer>
+
+
+<script>
+
+    const jokes = [
+
+        "Warum können Geister so schlecht lügen?<br><br>Weil man durch sie hindurchsieht! 👻😂",
+
+        "Was macht ein Keks unter einem Baum?<br><br>Krümel! 🍪😂",
+
+        "Warum ging der Computer zum Arzt?<br><br>Er hatte einen Virus! 💻😂",
+
+        "Was sagt ein großer Stift zu einem kleinen Stift?<br><br>Wachs-mal-Stift! ✏️😂",
+
+        "Warum können Seeräuber keinen Kreis fahren?<br><br>Weil sie Pi raten! 🏴‍☠️😂",
+
+        "Was macht ein Clown im Büro?<br><br>Faxen! 🤡😂",
+
+        "Was ist grün und steht vor der Tür?<br><br>Ein Klopfsalat! 🥬😂",
+
+        "Warum trinken Mathematiker keinen Kaffee?<br><br>Weil sie sonst nicht mehr mit den Brüchen klarkommen! ☕😂"
+
+    ];
+
+
+    function newJoke() {
+
+        const joke = jokes[Math.floor(Math.random() * jokes.length)];
+
+        document.getElementById("joke").innerHTML = joke;
+
+    }
+
+</script>
+
+</body>
+</html>
