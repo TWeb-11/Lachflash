@@ -2,6 +2,7 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Lachflash 😂 | Witze & Spaß</title>
@@ -379,9 +380,9 @@
         <div class="big">😂</div>
 
         <p id="joke">
-            Warum können Geister so schlecht lügen?
+            Was macht ein Pirat am Computer?
             <br><br>
-            Weil man durch sie hindurchsieht! 👻😂
+            Er drückt die Enter-Taste! 🏴‍☠️😂
         </p>
 
         <button class="button" onclick="newJoke()">
@@ -445,7 +446,7 @@
 
         <p>
             Willkommen auf der Webseite von meinem
-            WhatsApp-Kanal <strong>Lachflash</strong>! 🎉
+            <strong>Lachflash</strong>! 🎉
             <br><br>
 
             Hier dreht sich alles um Witze, Spaß und
@@ -491,30 +492,42 @@
 
     const jokes = [
 
-        "Warum können Geister so schlecht lügen?<br><br>Weil man durch sie hindurchsieht! 👻😂",
+        "Was macht ein Pirat am Computer?<br><br>Er drückt die Enter-Taste! 🏴‍☠️😂",
 
-        "Was macht ein Keks unter einem Baum?<br><br>Krümel! 🍪😂",
+        "Warum ging das Buch zum Arzt?<br><br>Weil es Rückenschmerzen hatte! 📖😂",
 
-        "Warum ging der Computer zum Arzt?<br><br>Er hatte einen Virus! 💻😂",
+        "Was sagt der eine Schneemann zum anderen?<br><br>Riechst du auch Karotten? ⛄🥕😂",
 
-        "Was sagt ein großer Stift zu einem kleinen Stift?<br><br>Wachs-mal-Stift! ✏️😂",
+        "Warum hat der Kalender Angst?<br><br>Weil seine Tage gezählt sind! 📅😂",
 
-        "Warum können Seeräuber keinen Kreis fahren?<br><br>Weil sie Pi raten! 🏴‍☠️😂",
+        "Was macht eine Tomate auf der Autobahn?<br><br>Sie gibt Ketchup! 🍅😂",
 
-        "Was macht ein Clown im Büro?<br><br>Faxen! 🤡😂",
+        "Warum ist der Computer so kalt?<br><br>Weil er Windows offen hat! 💻🥶😂",
 
-        "Was ist grün und steht vor der Tür?<br><br>Ein Klopfsalat! 🥬😂",
+        "Was macht ein Frosch im Fitnessstudio?<br><br>Er trainiert seine Quak-Muskeln! 🐸😂",
 
-        "Warum trinken Mathematiker keinen Kaffee?<br><br>Weil sie sonst nicht mehr mit den Brüchen klarkommen! ☕😂"
+        "Warum hat der Pilz so viele Freunde?<br><br>Weil er ein echter Champignon ist! 🍄😂",
+
+        "Warum ging die Banane zum Arzt?<br><br>Weil sie sich nicht mehr krumm machen konnte! 🍌😂",
+
+        "Was macht ein Hund am Computer?<br><br>Er surft im Wau-Wau-Web! 🐶💻😂"
 
     ];
 
 
+    let jokeIndex = 0;
+
+
     function newJoke() {
 
-        const joke = jokes[Math.floor(Math.random() * jokes.length)];
+        document.getElementById("joke").innerHTML =
+            jokes[jokeIndex];
 
-        document.getElementById("joke").innerHTML = joke;
+        jokeIndex++;
+
+        if (jokeIndex >= jokes.length) {
+            jokeIndex = 0;
+        }
 
     }
 
